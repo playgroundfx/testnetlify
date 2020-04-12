@@ -7,7 +7,7 @@
 {{ else }}
 {{ $cssOpts := (dict "targetPath" "/css/main.css" ) }}
 {{ $postCSSOpts := (dict "use" "autoprefixer" ) }}
-{{ $bundle := $bundleRaw | toCSS $cssOpts | postCSS $postCSSOpts | minify | fingerprint }}
+{{ $bundle := $bundleRaw | toCSS $cssOpts }}
 <link rel="stylesheet" href="{{ $bundle.RelPermalink }}" integrity="{{ $bundle.Data.Integrity }}" crossorigin="anonymous" media="screen">
 {{ end }}
 
